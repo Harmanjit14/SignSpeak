@@ -13,7 +13,7 @@ class DashBoard extends StatelessWidget {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Get.to(() => const ChoiceScreen(),
+          Get.to(() =>  ChoiceScreen(),
               transition: Transition.leftToRight, curve: Curves.easeIn);
         },
         backgroundColor: Colors.yellow[700],
