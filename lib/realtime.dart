@@ -1,5 +1,6 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'export.dart';
 import 'package:get/get.dart';
 
@@ -62,7 +63,10 @@ class _RealtimeScreenState extends State<RealtimeScreen> {
           children: [
             Flexible(
               child: Container(
-                child: Expanded(child: CameraPreview(controller!)),
+                child: Expanded(
+                    child: ClipRRect(
+                        borderRadius: BorderRadius.circular(20),
+                        child: CameraPreview(controller!))),
                 decoration: BoxDecoration(
                     color: Colors.white,
                     boxShadow: const [
@@ -75,7 +79,52 @@ class _RealtimeScreenState extends State<RealtimeScreen> {
             Container(
               padding: const EdgeInsets.all(10),
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 mainAxisSize: MainAxisSize.max,
+                children: [
+                  Container(
+                    height: 60,
+                    width: 60,
+                    decoration: const BoxDecoration(
+                      shape: BoxShape.circle,
+                      // color: Colors.pink,
+                    ),
+                    child: ElevatedButton(
+                      onPressed: () {},
+                      style: ElevatedButton.styleFrom(
+                        elevation: 0,
+                        primary: Colors.grey[200],
+                        padding: const EdgeInsets.all(0),
+                        shape: const CircleBorder(),
+                      ),
+                      child:
+                          const Icon(Icons.add, size: 30, color: Colors.black),
+                    ),
+                  ),
+                  Container(
+                      height: 60,
+                      width: 130,
+                      decoration: const BoxDecoration(
+                          // color: Colors.pink,
+                          ),
+                      child: ElevatedButton.icon(
+                        onPressed: () {},
+                        style: ElevatedButton.styleFrom(
+                            elevation: 0,
+                            primary: Colors.amber,
+                            padding: const EdgeInsets.all(0),
+                            shape: const StadiumBorder()),
+                        icon: const Icon(Icons.volume_up_outlined,
+                            color: Colors.white, size: 30),
+                        label: Text(
+                          "Done",
+                          style: GoogleFonts.rubik(
+                            fontSize: 20,
+                            color: Colors.white,
+                          ),
+                        ),
+                      )),
+                ],
               ),
               decoration: BoxDecoration(
                   color: Colors.white,
