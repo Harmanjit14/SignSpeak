@@ -13,8 +13,7 @@ class DashBoard extends StatelessWidget {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Get.to(() =>  ChoiceScreen(),
-              transition: Transition.leftToRight, curve: Curves.easeIn);
+          Get.to(() => ChoiceScreen(), transition: Transition.leftToRight);
         },
         backgroundColor: Colors.yellow[700],
         child: const Icon(
@@ -43,11 +42,10 @@ class DashBoard extends StatelessWidget {
                         color: Colors.black,
                         fontSize: 35,
                         shadows: [
-                         const Shadow(
-                          //  offset: Offset(1,-1),
-                           blurRadius: 3,
-                           color: Colors.grey
-                         ),
+                          const Shadow(
+                              //  offset: Offset(1,-1),
+                              blurRadius: 3,
+                              color: Colors.grey),
                         ],
                         fontWeight: FontWeight.bold),
                   ),

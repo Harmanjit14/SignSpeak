@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
-import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:signspeak/export.dart';
 
 class IconState extends GetxController {
   RxBool s1 = false.obs;
@@ -53,6 +52,8 @@ class ChoiceScreen extends StatelessWidget {
                 case 2:
                   break;
                 case 3:
+                  Get.to(() => const RealtimeScreen(),
+                      transition: Transition.leftToRight);
                   break;
                 default:
                   Get.snackbar("Wait!", "Please select to continue...",
