@@ -16,6 +16,7 @@ class _RealtimeScreenState extends State<RealtimeScreen> {
   CameraController? controller;
   CameraImage? img;
   bool loading = false;
+  String res = "";
 
   @override
   void initState() {
@@ -99,6 +100,7 @@ class _RealtimeScreenState extends State<RealtimeScreen> {
                           ),
                           child: ElevatedButton(
                             onPressed: () async {
+                              String temp;
                               await Tflite.runModelOnFrame(
                                 bytesList: img!.planes.map((plane) {
                                   return plane.bytes;
@@ -106,7 +108,18 @@ class _RealtimeScreenState extends State<RealtimeScreen> {
                                 imageHeight: img!.height,
                                 imageWidth: img!.width,
                               ).then((value) => {
-                                    print(value),
+                                    temp = value![0]["label"]
+                                        .toString()
+                                        .split(" ")
+                                        .last,
+                                    if (temp == '_')
+                                      {
+                                        res += " ",
+                                      }
+                                    else
+                                      res += temp,
+                                    Get.snackbar("Sign Converted",
+                                        "Your sign says : $temp")
                                   });
                             },
                             style: ElevatedButton.styleFrom(
@@ -126,7 +139,10 @@ class _RealtimeScreenState extends State<RealtimeScreen> {
                                 // color: Colors.pink,
                                 ),
                             child: ElevatedButton.icon(
-                              onPressed: () {},
+                              onPressed: () {
+                                Get.to(() => SpeechScreen(res),
+                                    transition: Transition.leftToRight);
+                              },
                               style: ElevatedButton.styleFrom(
                                   elevation: 0,
                                   primary: Colors.amber,
