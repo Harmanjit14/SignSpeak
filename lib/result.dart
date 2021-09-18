@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+
 class SpeechScreen extends StatelessWidget {
-  const SpeechScreen({ Key? key }) : super(key: key);
+  const SpeechScreen(this.speech, {Key? key}) : super(key: key);
+  final String speech;
 
   @override
   Widget build(BuildContext context) {

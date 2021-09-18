@@ -195,16 +195,23 @@ class _UploadScreenState extends State<UploadScreen> {
                                   setState(() {
                                     loading = true;
                                   });
-                                  await Tflite.runModelOnFrame(
-                                    bytesList: img!.planes.map((plane) {
-                                      return plane.bytes;
-                                    }).toList(), // required
-                                    imageHeight: img!.height,
-                                    imageWidth: img!.width,
-                                  ).then((value) => {
-                                        print(value),
-                                        Get.to(() => const SpeechScreen()),
-                                      });
+                                  await Tflite.runModelOnImage(
+                                          path: photo!.path, // required
+                                          asynch: true // defaults to true
+                                          )
+                                      .then((value) {
+                                    print(value![0]["label"].toString());
+                                    String res = value[0]["label"]
+                                        .toString()
+                                        .split(" ")
+                                        .last;
+                                        // print(res);
+                                        loading=false;
+                                    Get.to(() => SpeechScreen(res),
+                                        transition: Transition.leftToRight);
+                                    // print(value!.asMap()["label"]);
+                                    // print(value);
+                                  });
                                 },
                                 style: ElevatedButton.styleFrom(
                                     elevation: 0,
