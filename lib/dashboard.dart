@@ -8,6 +8,7 @@ class IconState extends GetxController {
   RxBool s1 = false.obs;
   RxBool s2 = false.obs;
   RxBool s3 = false.obs;
+  RxInt selected = 0.obs;
 
   void set1() {
     s1 = true.obs;
@@ -45,7 +46,19 @@ class ChoiceScreen extends StatelessWidget {
             // elevation: 10,
             color: Colors.amber,
             // elevation: 0,
-            onPressed: () {},
+            onPressed: () {
+              switch (controller.selected.value) {
+                case 1:
+                  break;
+                case 2:
+                  break;
+                case 3:
+                  break;
+                default:
+                  Get.snackbar("Wait!", "Please select to continue...",
+                      icon: const Icon(Icons.error));
+              }
+            },
             child: Text(
               "Continue",
               style: GoogleFonts.rubik(
@@ -97,6 +110,7 @@ class ChoiceScreen extends StatelessWidget {
                             controller.s1.value = true;
                             controller.s3.value = false;
                             controller.s2.value = false;
+                            controller.selected.value = 1;
                           },
                           child: Container(
                             child: Column(
@@ -144,6 +158,7 @@ class ChoiceScreen extends StatelessWidget {
                             controller.s2.value = true;
                             controller.s1.value = false;
                             controller.s3.value = false;
+                            controller.selected.value = 2;
                           },
                           child: Container(
                             child: Column(
@@ -161,14 +176,18 @@ class ChoiceScreen extends StatelessWidget {
                                   Text(
                                     "Reverse",
                                     style: GoogleFonts.rubik(
-                                      color: Colors.black,
+                                      color: (controller.s2.value)
+                                          ? Colors.white
+                                          : Colors.black,
                                       fontSize: 22,
                                       fontWeight: FontWeight.w400,
                                     ),
                                   ),
                                 ]),
                             decoration: BoxDecoration(
-                                color: Colors.white,
+                                color: (controller.s2.value)
+                                    ? Colors.amber
+                                    : Colors.white,
                                 boxShadow: const [
                                   BoxShadow(blurRadius: 15, color: Colors.grey)
                                 ],
@@ -187,6 +206,7 @@ class ChoiceScreen extends StatelessWidget {
                             controller.s3.value = true;
                             controller.s1.value = false;
                             controller.s2.value = false;
+                            controller.selected.value = 3;
                           },
                           child: Container(
                             child: Column(
@@ -204,14 +224,18 @@ class ChoiceScreen extends StatelessWidget {
                                   Text(
                                     "Realtime",
                                     style: GoogleFonts.rubik(
-                                      color: Colors.black,
+                                      color: (controller.s3.value)
+                                          ? Colors.white
+                                          : Colors.black,
                                       fontSize: 22,
                                       fontWeight: FontWeight.w400,
                                     ),
                                   ),
                                 ]),
                             decoration: BoxDecoration(
-                                color: Colors.white,
+                                color: (controller.s3.value)
+                                    ? Colors.amber
+                                    : Colors.white,
                                 boxShadow: const [
                                   BoxShadow(blurRadius: 15, color: Colors.grey)
                                 ],
