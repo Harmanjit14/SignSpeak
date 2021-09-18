@@ -1,6 +1,7 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:tflite/tflite.dart';
 import 'export.dart';
 import 'package:get/get.dart';
 
@@ -17,18 +18,18 @@ class _RealtimeScreenState extends State<RealtimeScreen> {
 
   @override
   void initState() {
-    // Tflite.loadModel(
-    //         model: "lib/assets/tflite/model.tflite",
-    //         labels: "lib/assets/tflite/labels.txt",
-    //         numThreads: 1, // defaults to 1
-    //         isAsset:
-    //             true, // defaults to true, set to false to load resources outside assets
-    //         useGpuDelegate:
-    //             false // defaults to false, set to true to use GPU delegate
-    //         )
-    //     .then((value) {
-    //   print(value);
-    // });
+    Tflite.loadModel(
+            model: "assets/tf/model.tflite",
+            labels: "assets/tf/labels.txt",
+            numThreads: 1, // defaults to 1
+            isAsset:
+                true, // defaults to true, set to false to load resources outside assets
+            useGpuDelegate:
+                false // defaults to false, set to true to use GPU delegate
+            )
+        .then((value) {
+      print(value);
+    });
 
     controller = CameraController(cameras[0], ResolutionPreset.veryHigh);
     controller!.initialize().then((_) {
@@ -89,7 +90,9 @@ class _RealtimeScreenState extends State<RealtimeScreen> {
                       // color: Colors.pink,
                     ),
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        
+                      },
                       style: ElevatedButton.styleFrom(
                         elevation: 0,
                         primary: Colors.grey[200],
