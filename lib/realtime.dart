@@ -30,7 +30,7 @@ class _RealtimeScreenState extends State<RealtimeScreen> {
     //   print(value);
     // });
 
-    controller = CameraController(cameras[0], ResolutionPreset.max);
+    controller = CameraController(cameras[0], ResolutionPreset.veryHigh);
     controller!.initialize().then((_) {
       if (!mounted) {
         print("Camera Not mounted!!");
@@ -63,10 +63,9 @@ class _RealtimeScreenState extends State<RealtimeScreen> {
           children: [
             Flexible(
               child: Container(
-                child: Expanded(
-                    child: ClipRRect(
-                        borderRadius: BorderRadius.circular(20),
-                        child: CameraPreview(controller!))),
+                child: ClipRRect(
+                    borderRadius: BorderRadius.circular(20),
+                    child: CameraPreview(controller!)),
                 decoration: BoxDecoration(
                     color: Colors.white,
                     boxShadow: const [

@@ -2,30 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:signspeak/export.dart';
+import 'package:signspeak/upload.dart';
 
 class IconState extends GetxController {
   RxBool s1 = false.obs;
   RxBool s2 = false.obs;
   RxBool s3 = false.obs;
   RxInt selected = 0.obs;
-
-  void set1() {
-    s1 = true.obs;
-    s2 = false.obs;
-    s3 = false.obs;
-  }
-
-  void set2() {
-    s2 = true.obs;
-    s1 = false.obs;
-    s3 = false.obs;
-  }
-
-  void set3() {
-    s3 = true.obs;
-    s2 = false.obs;
-    s1 = false.obs;
-  }
 }
 
 class ChoiceScreen extends StatelessWidget {
@@ -48,6 +31,8 @@ class ChoiceScreen extends StatelessWidget {
             onPressed: () {
               switch (controller.selected.value) {
                 case 1:
+                  Get.to(() => const UploadScreen(),
+                      transition: Transition.leftToRight);
                   break;
                 case 2:
                   break;
