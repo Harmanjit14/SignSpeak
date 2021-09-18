@@ -152,7 +152,7 @@ class ChoiceScreen extends StatelessWidget {
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Icon(
-                                    Icons.videocam,
+                                    Icons.swap_horiz,
                                     size: 60,
                                     color: (controller.s2.value)
                                         ? Colors.white
