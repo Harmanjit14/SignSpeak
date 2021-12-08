@@ -28,7 +28,7 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   after_layout: ^1.1.0
-  camera: ^0.9.2+2
+  camera: ^0.9.2+5
   cupertino_icons: ^1.0.2
   flutter:
     sdk: flutter
@@ -57,7 +57,7 @@ flutter:
     - assets/
     - assets/tf/labels.txt
     - assets/tf/model.tflite
-    - assets/signs
+    - assets/signs/
   #   - images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

@@ -35,6 +35,7 @@ class ChoiceScreen extends StatelessWidget {
                       transition: Transition.leftToRight);
                   break;
                 case 2:
+                  Get.to(() => RevTextHandler());
                   break;
                 case 3:
                   Get.to(() => const RealtimeScreen(),
@@ -220,6 +221,54 @@ class ChoiceScreen extends StatelessWidget {
                                 ]),
                             decoration: BoxDecoration(
                                 color: (controller.s3.value)
+                                    ? Colors.amber
+                                    : Colors.white,
+                                boxShadow: const [
+                                  BoxShadow(blurRadius: 15, color: Colors.grey)
+                                ],
+                                borderRadius: BorderRadius.circular(30)),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    child: Padding(
+                      padding: const EdgeInsets.all(10),
+                      child: Obx(
+                        () => GestureDetector(
+                          onTap: () {
+                            controller.s1.value = true;
+                            controller.s3.value = false;
+                            controller.s2.value = false;
+                            controller.selected.value = 4;
+                          },
+                          child: Container(
+                            child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Icon(
+                                    Icons.file_upload,
+                                    size: 60,
+                                    color: (controller.s1.value)
+                                        ? Colors.white
+                                        : Colors.black,
+                                  ),
+                                  const SizedBox(height: 10),
+                                  Text(
+                                    "All Signs",
+                                    style: GoogleFonts.rubik(
+                                      color: (controller.s1.value)
+                                          ? Colors.white
+                                          : Colors.black,
+                                      fontSize: 22,
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                  ),
+                                ]),
+                            decoration: BoxDecoration(
+                                color: (controller.s1.value)
                                     ? Colors.amber
                                     : Colors.white,
                                 boxShadow: const [
