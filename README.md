@@ -1,16 +1,10 @@
-# signspeak
+# Sign-Speak
+### Sign language is the noblest gift God has given to deaf people and making it readable by everyone people is this project.
 
-A new Flutter project.
+## The problem Sign-Speak solves
+Everybody can't understand sign language and there is no other way for deaf people to communicate. So, our motive is to create a cross-platform mobile application that will help deaf people to communicate with normal people. A Lot of research has been already done on this topic but nothing is implemented in real life.
+So here is our attempt to solve this problem...
+We have created a mobile application that will real-time convert sign language to speech. .Also, we have kept the UI of the app simple so that it is accessible and handy to everyone.
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## What we have Achieved
+We were able to complete the app i.e. The flutter app is capable to convert real-time image stream to speech but our Machine Learning model is doing its best but is not that accurate but we really hope this solution will help the people in need.
