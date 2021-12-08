@@ -6,7 +6,7 @@
     </intent>  
   </queries>
    <application
-        android:label="signspeak"
+        android:label="Sign Speak"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
