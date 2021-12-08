@@ -22,7 +22,14 @@ class RevTextHandler extends StatelessWidget {
             color: Colors.amber,
             // elevation: 0,
             onPressed: () {
-              Get.off(()=>RevScreen(text: _controller.text));
+              if (_controller.text.isEmpty ||
+                  _controller.text.removeAllWhitespace.isEmpty ||
+                  _controller.text.removeAllWhitespace == '') {
+                Get.snackbar(
+                    "Error", "Please enter text before moving forward");
+                return;
+              }
+              Get.off(() => RevScreen(text: _controller.text.toLowerCase()));
             },
             child: Text(
               "Continue",

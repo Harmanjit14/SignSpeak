@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:signspeak/all_signs.dart';
 import 'package:signspeak/export.dart';
 import 'package:signspeak/upload.dart';
 
@@ -8,6 +9,7 @@ class IconState extends GetxController {
   RxBool s1 = false.obs;
   RxBool s2 = false.obs;
   RxBool s3 = false.obs;
+  RxBool s4 = false.obs;
   RxInt selected = 0.obs;
 }
 
@@ -40,6 +42,9 @@ class ChoiceScreen extends StatelessWidget {
                 case 3:
                   Get.to(() => const RealtimeScreen(),
                       transition: Transition.leftToRight);
+                  break;
+                case 4:
+                  Get.to(() => const AllSigns());
                   break;
                 default:
                   Get.snackbar("Wait!", "Please select to continue...",
@@ -97,6 +102,7 @@ class ChoiceScreen extends StatelessWidget {
                             controller.s1.value = true;
                             controller.s3.value = false;
                             controller.s2.value = false;
+                            controller.s4.value = false;
                             controller.selected.value = 1;
                           },
                           child: Container(
@@ -145,6 +151,7 @@ class ChoiceScreen extends StatelessWidget {
                             controller.s2.value = true;
                             controller.s1.value = false;
                             controller.s3.value = false;
+                            controller.s4.value = false;
                             controller.selected.value = 2;
                           },
                           child: Container(
@@ -193,6 +200,7 @@ class ChoiceScreen extends StatelessWidget {
                             controller.s3.value = true;
                             controller.s1.value = false;
                             controller.s2.value = false;
+                            controller.s4.value = false;
                             controller.selected.value = 3;
                           },
                           child: Container(
@@ -238,9 +246,10 @@ class ChoiceScreen extends StatelessWidget {
                       child: Obx(
                         () => GestureDetector(
                           onTap: () {
-                            controller.s1.value = true;
+                            controller.s1.value = false;
                             controller.s3.value = false;
                             controller.s2.value = false;
+                            controller.s4.value = true;
                             controller.selected.value = 4;
                           },
                           child: Container(
@@ -249,9 +258,9 @@ class ChoiceScreen extends StatelessWidget {
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Icon(
-                                    Icons.file_upload,
+                                    Icons.follow_the_signs,
                                     size: 60,
-                                    color: (controller.s1.value)
+                                    color: (controller.s4.value)
                                         ? Colors.white
                                         : Colors.black,
                                   ),
@@ -259,7 +268,7 @@ class ChoiceScreen extends StatelessWidget {
                                   Text(
                                     "All Signs",
                                     style: GoogleFonts.rubik(
-                                      color: (controller.s1.value)
+                                      color: (controller.s4.value)
                                           ? Colors.white
                                           : Colors.black,
                                       fontSize: 22,
@@ -268,7 +277,7 @@ class ChoiceScreen extends StatelessWidget {
                                   ),
                                 ]),
                             decoration: BoxDecoration(
-                                color: (controller.s1.value)
+                                color: (controller.s4.value)
                                     ? Colors.amber
                                     : Colors.white,
                                 boxShadow: const [
