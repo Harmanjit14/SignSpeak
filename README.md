@@ -1,6 +1,9 @@
 # Sign-Speak
 ### Sign language is the noblest gift God has given to deaf people and making it readable by everyone people is this project.
 
+## Video Demo
+[![Watch the video](https://i.imgur.com/vKb2F1B.png)](https://youtu.be/_xUWmJqKQ5s)
+
 ## The problem Sign-Speak solves
 Everybody can't understand sign language and there is no other way for deaf people to communicate. So, our motive is to create a cross-platform mobile application that will help deaf people to communicate with normal people. A Lot of research has been already done on this topic but nothing is implemented in real life.
 So here is our attempt to solve this problem...
