@@ -8,3 +8,11 @@ We have created a mobile application that will real-time convert sign language t
 
 ## What we have Achieved
 We were able to complete the app i.e. The flutter app is capable to convert real-time image stream to speech but our Machine Learning model is doing its best but is not that accurate but we really hope this solution will help the people in need.
+
+## How to use the app
+1. Download and install the apk from release page of github
+
+## How to contribute
+1. Download and install Flutter and Android Studio
+2. Clone this repository and run 'Flutter run'
+3. Edit/ Update code in VS-Code and press 'r' or 'R' on keyboard to view changes
